@@ -1,0 +1,312 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    background-color: rgba(30, 30, 30, 1); /* Main background color across all sections */
+}
+
+.hero-image {
+    background-image: url('https://i.ibb.co/CBP0b1S/kolsai.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+}
+
+.header-text {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4.5em; 
+    color: #FFF;
+    font-weight: bold;
+    z-index: 10;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    min-height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(5, 5, 5, 0);
+    transition: background 0.3s ease;
+    z-index: 1000;
+    backdrop-filter: blur(0); /* Initial blur value */
+}
+
+
+header img.logo {
+    position: absolute;
+    left: 20px;
+    width: 140px;
+    height: auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+nav.desktop-menu {
+    width: 100%;
+    text-align: center;
+}
+
+nav.desktop-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav.desktop-menu ul li {
+    padding: 0 15px;
+}
+
+nav.desktop-menu ul li a {
+    color: #FFD500;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, background 0.3s ease;
+     font-size: 20px;
+}
+
+nav.desktop-menu ul li a:hover {
+   /* background: rgba(255, 213, 0, 0.5); */
+    color: #FFF;
+}
+
+
+
+
+
+.column {
+    flex: 1;
+    margin-right: 20px;
+    text-align: justify;
+}
+
+
+.about-image {
+    display: block;
+    width: 0%;
+    height: auto;
+    margin: 20px auto;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #003F88;
+    color: #FFD500;
+}
+
+.about-container {
+    font-size: 18px;
+    max-width: 1280px; /* Set maximum width */
+    margin: 20px auto; /* Center content horizontally with vertical margin */
+    padding: 0 10px; /* Ensure 15px padding on left and right sides */
+    background-color: rgba(20, 20, 20, 1);
+    border-radius: 8px;
+    color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: justify;
+}
+.about-container h2 {
+    font-size: 25px; /* Adjust the font size as needed */
+}
+.location-section h1 {
+    font-size: 30px; /* Adjust the font size as needed */
+    color: #FFD500;
+    margin: 15px auto;
+    padding-top: 10px;
+}
+.location-section {
+    max-width: 1280px;
+    margin: 15px auto; /* Center content and ensure 15px margin on smaller screens */
+    padding: 10px;
+    padding-top: 10px;
+    background-color: rgba(20, 20, 20, 1); /* Match the about section background */
+    border-radius: 8px;
+    color: #FFF; /* Ensuring text is white for visibility */
+    display: flex;
+    flex-direction: column; /* Added to manage layout more consistently */
+}
+/* New rules for h2 text */
+.about-container h2, 
+.location-section h2 {
+    color: #FFD500; /* Set text color to #FFD500 */
+}
+
+/* Custom bullet styles */
+.about-container ul,
+.location-section ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 20px; /* Add padding for custom bullets */
+    position: relative; /* Set position to relative for custom bullets */
+}
+
+.about-container ul li,
+.location-section ul li {
+    position: relative; /* Position each list item relative */
+    padding-left: 25px; /* Add padding to make room for custom bullet */
+    margin-bottom: 10px; /* Add some space between list items */
+}
+
+.about-container ul li::before,
+.location-section ul li::before {
+    content: "•"; /* Custom bullet */
+    color: #FFD500; /* Set bullet color to yellow */
+    position: absolute;
+    left: 0; /* Position bullet on the left */
+    font-size: 24px; /* Adjust the size of the bullet */
+    line-height: 1; /* Align bullet vertically with text */
+}
+
+
+.location-title {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0px; /* Give some space below the title */
+}
+
+.location-description {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 10px; /* Consistent bottom margin */
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap; /* Allow the items to wrap to the next line */
+    justify-content: center; /* Center-align the images */
+    gap: 8px; /* Adjust the spacing between the images as needed */
+}
+
+.gallery img {
+    width: calc(33% - 5px); /* Adjust width to account for gap */
+    object-fit: cover;
+    height: auto;
+    border-radius: 8px;
+    aspect-ratio: 16 / 9;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+.mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    position: fixed;
+    top: 4px; /* Adjust positioning as needed */
+    left: 20px; /* Adjust positioning as needed */
+    margin-top: 10px; /* Add a small top margin (optional) */
+    z-index: 1050; /* Ensure button is above header and menu */
+}
+
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 165px;
+    height: 100%;
+    background: #000000;
+    transition: left 0.3s ease;
+    z-index: 1000; /* Ensure the menu is below the button */
+    padding-top: 70px; /* Add padding to move menu items below the button */
+}
+
+.mobile-menu-button.active {
+  background-color: rgba(0, 0, 0, 0.3); /* Add some transparency to indicate active state */
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 20px;
+    padding-top: 35px;
+    margin: 0;
+}
+
+.mobile-menu ul li {
+    margin-bottom: 20px;
+}
+
+.mobile-menu ul li a {
+    color: #FFD500;
+    text-decoration: none;
+    font-size: 20px;
+     font-weight: bold;
+}
+.video-container {
+  display: flex;
+  flex-wrap: wrap; /* Ensures elements wrap to the next line */
+  gap: 10px; /* Adjust spacing between iframes */
+  justify-content: center; /* Center the iframes within the container */
+  
+}
+
+.video-container iframe {
+  flex: 0 0 48%; /* Each iframe takes 48% of the container's width (adjustable) */
+  box-sizing: border-box;
+  aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
+}
+.menu-active .mobile-menu {
+    left: 0;
+}
+
+@media (max-width: 1280px) {
+  .mobile-menu-button {
+    display: block;
+  }
+  
+  .desktop-menu {
+    display: none;
+  }
+
+  header {
+    
+    display: flex; /* Make header a flex container */
+    justify-content: center; /* Center elements horizontally */
+    align-items: center; /* Center elements vertically (optional) */
+    width: 100%; /* Ensure header spans the viewport width */
+    padding: 0 0px; /* Optional padding for content */
+    min-height: 70px;
+  }
+  
+  header img.logo {
+    position: static;
+    transform: none;
+    width: 100px; /* Adjust as necessary */
+  }
+  .header-text {   
+    font-size: 3.5em; 
+  }
+  .about-container { /* Override for mobile */
+  
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for stacking */
+  }
+  section {
+   
+  }
+  .column { /* Remove margin for cleaner layout (optional) */
+    margin-right: 0;
+  }
+
+}

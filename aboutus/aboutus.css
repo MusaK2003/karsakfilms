@@ -133,7 +133,10 @@ main {
     border-radius: 8px;
     color: #FFF;
 }
-    
+h2 {
+    text-align: left; /* Change this to whatever alignment you need, like center, right, etc. */
+}
+
 .info {
     flex: 1;
     margin-right: 20px;

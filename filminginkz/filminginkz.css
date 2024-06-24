@@ -9,7 +9,7 @@ body {
     background-image: url('https://i.ibb.co/CBP0b1S/kolsai.png');
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 45vh;
     position: relative;
 }
 
@@ -18,7 +18,7 @@ body {
     left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 4.5em; 
+    font-size: 3.5em; 
     color: #FFF;
     font-weight: bold;
     z-index: 10;

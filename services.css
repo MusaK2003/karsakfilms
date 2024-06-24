@@ -115,7 +115,7 @@ nav.desktop-menu ul li a:hover {
 }
 
 main {
-    max-width: 1100px;
+    max-width: 1280px;
     margin: 100px auto 0 auto; /* Center content and add top margin to push below header */
     padding: 0 5px; /* Optional: Add some padding for better spacing */
     margin-top: 120px; /* Space to push content below the fixed header */

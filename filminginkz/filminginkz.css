@@ -23,6 +23,7 @@ body {
     font-weight: bold;
     z-index: 10;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: center; /* Ensures that multi-line text is centered */
 }
 
 header {

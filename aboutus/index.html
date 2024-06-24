@@ -3,40 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="stylesheet" href="aboutus.css">
+    <title>Filming in KZ</title>
+    <link rel="stylesheet" href="/aboutus.css">
+    <script>
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("include-html");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            elmnt.innerHTML = this.responseText;
+                            elmnt.removeAttribute("include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-<button class="mobile-menu-button" onclick="toggleMenu()">☰</button>
-<body>
-    <div class="hero-image">
-        <div class="header-text">FILMING IN KAZAKHSTAN</div>
-        <button class="mobile-menu-button" onclick="toggleMenu()">☰</button>
-        <header>           
-            <img src="https://i.ibb.co/ypN4sPW/karsaktransparent-white.png" alt="KARSAK 21ST CENTURY Logo" class="logo">
-            <nav class="desktop-menu">
-                <ul>
-                    <li><a href="aboutus.html">About us</a></li>
-                    <li><a href="filminginkz.html">Filming in KZ</a></li>
-                    <li><a href="indiainkz.html">India in KZ</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="globalpartnerships.html">Global Partnerships</a></li>
-                    <li><a href="contacts.html">Contacts</a></li>
-                </ul>
-            </nav>
-        </header>
+<body onload="includeHTML()">
+    <div include-html="header.html"></div>
+
+    <!-- Rest of your page content -->
+    <div class="content">
+        <!-- Your page specific content goes here -->
     </div>
 
-    <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="aboutus.html" onclick="toggleMenu()">About us</a></li>
-            <li><a href="filminginkz.html" onclick="toggleMenu()">Filming in KZ</a></li>
-            <li><a href="indiainkz.html" onclick="toggleMenu()">India in KZ</a></li>
-            <li><a href="services.html" onclick="toggleMenu()">Services</a></li>
-            <li><a href="globalpartnerships.html" onclick="toggleMenu()">Global Partnerships</a></li>
-            <li><a href="contacts.html" onclick="toggleMenu()">Contacts</a></li>
-        </ul>
-    </div>
+    <script>
+        function toggleMenu() {
+            document.body.classList.toggle('menu-active');
+            document.querySelector('.mobile-menu-button').classList.toggle('active');
+        }
+
+        function handleHeaderOpacity() {
+            var top = window.pageYOffset || document.documentElement.scrollTop;
+            var opacity = 0;
+            var blurValue = 0;
+
+            if (top <= 50) {
+                opacity = 0;
+                blurValue = 0;
+            } else if (top > 50 && top <= 300) {
+                opacity = (top - 50) / 250;
+                blurValue = opacity * 10;
+                opacity = Math.min(opacity, 0.85);
+            } else {
+                opacity = 0.85;
+                blurValue = 10;
+            }
+
+            var header = document.querySelector('header');
+            if (!header.classList.contains('hovered')) {
+                header.style.backgroundColor = `rgba(5, 5, 5, ${opacity})`;
+                header.style.backdropFilter = `blur(${blurValue}px)`;
+            }
+        }
+
+        window.addEventListener('scroll', handleHeaderOpacity);
+        document.addEventListener('DOMContentLoaded', handleHeaderOpacity);
+
+        var header = document.querySelector('header');
+        header.addEventListener('mouseover', function() {
+            this.classList.add('hovered');
+            this.style.backgroundColor = 'rgba(5, 5, 5, 0.90)';
+            this.style.backdropFilter = 'blur(10px)';
+        });
+
+        header.addEventListener('mouseout', function() {
+            this.classList.remove('hovered');
+            handleHeaderOpacity();
+        });
+    </script>
 
 <main>
     <section id="about">

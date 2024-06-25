@@ -83,7 +83,30 @@ nav.desktop-menu ul li a:hover {
     color: #FFF;
 }
 
+.language-buttons {
+    position: fixed;
+    top: 40px;
+    right: 20px;
+    z-index: 1100;
+    display: flex;
+    gap: 10px;
+}
 
+.lang-button {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.lang-button.active {
+    color: #FFFFFF;
+}
+
+.lang-button:not(.active) {
+    color: #FFD500;
+}
 
 
 

@@ -1,3 +1,9 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
 header {
     display: flex;
     justify-content: center;
@@ -8,7 +14,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(5, 5, 5, 0.95); /* Changed to solid background */
+    background: rgba(5, 5, 5, 1); /* Changed to solid background */
     transition: background 0.3s ease;
     z-index: 1000;
     backdrop-filter: blur(0);
@@ -71,7 +77,7 @@ nav.desktop-menu ul li a:hover {
     position: fixed;
     top: 0;
     left: -100%;
-    width: 210px;
+    width: 165px;
     height: 100%;
     background: #000000;
     transition: left 0.3s ease;
@@ -98,16 +104,20 @@ nav.desktop-menu ul li a:hover {
     color: #FFD500;
     text-decoration: none;
     font-size: 20px;
-    font-weight: bold;
+     font-weight: bold;
 }
 
 .menu-active .mobile-menu {
     left: 0;
 }
 
+
+
+
 @media (max-width: 1080px) {
     .mobile-menu-button {
         display: block;
+     
     }
 
     .desktop-menu {
@@ -133,21 +143,7 @@ nav.desktop-menu ul li a:hover {
         font-size: 3.5em;
     }
 
-    .about-container {
-        display: grid;
-        grid-template-columns: 1fr; /* Single column for stacking */
-    }
 
-    section {
-        font-size: 16px;
-    }
 
-    .column { /* Remove margin for cleaner layout (optional) */
-        margin-right: 0;
-    }
 
-    main {
-        margin: 100px auto 0 auto;
-    }
 }
-

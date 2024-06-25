@@ -4,10 +4,7 @@ body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
     background-color: rgba(30, 30, 30, 1); /* Main background color across all sections */
 }
-header {
 
-    background: rgba(5, 5, 5, 0);
-}
 .hero-image {
     background-image: url('https://i.ibb.co/CBP0b1S/kolsai.png');
     background-size: cover;

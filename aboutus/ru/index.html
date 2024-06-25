@@ -10,10 +10,11 @@
 
 <body>
     <div id="header-container"></div>
-    <div class="language-buttons">
-        <button class="lang-button">EN</button>
-        <button class="lang-button active" onclick="switchLanguage('ru')">RU</button>
-    </div>
+<div class="language-buttons">
+    <button class="lang-button" onclick="window.location.href='/aboutus'">EN</button>
+    <button class="lang-button active" onclick="window.location.href='/aboutus/ru'">RU</button>
+</div>
+
     <main>
         <section id="about">
             <div class="about-container">
@@ -66,23 +67,7 @@
                 });
         }
         
-        function switchLanguage(lang) {
-    const currentPath = window.location.pathname;
-    const pathParts = currentPath.split('/');
-
-    if (lang === 'ru') {
-        if (!pathParts.includes('ru')) {
-            pathParts.splice(pathParts.length - 1, 0, 'ru');
-            window.location.href = pathParts.join('/');
-        }
-    } else {
-        if (pathParts.includes('ru')) {
-            const ruIndex = pathParts.indexOf('ru');
-            pathParts.splice(ruIndex, 1);
-            window.location.href = pathParts.join('/');
-        }
-    }
-}
+    
 
 
         loadHeader();

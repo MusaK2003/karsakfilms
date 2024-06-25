@@ -62,10 +62,6 @@
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-container').innerHTML = data;
-                    // After loading the header, load the header script
-                    const script = document.createElement('script');
-                    script.src = "/scripts/header.js";
-                    document.body.appendChild(script);
                 });
         }
 

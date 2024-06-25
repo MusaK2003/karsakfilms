@@ -27,7 +27,7 @@ header img.logo {
     height: auto;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 1050;
+    z-index: 1200;
 }
 
 nav.desktop-menu {
@@ -83,7 +83,7 @@ nav.desktop-menu ul li a:hover {
     background: #000000;
     transition: left 0.3s ease;
     z-index: 1000; /* Ensure the menu is below the button */
-    padding-top: 70px; /* Add padding to move menu items below the button */
+    padding-top: 100px; /* Add padding to move menu items below the button */
 }
 
 .mobile-menu-button.active {
@@ -140,6 +140,7 @@ nav.desktop-menu ul li a:hover {
         position: static;
         transform: none;
         width: 100px; /* Adjust as necessary */
+        z-index: 1200;
     }
 
     .header-text {

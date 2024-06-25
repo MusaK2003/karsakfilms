@@ -82,6 +82,31 @@ main {
     text-decoration: underline; /* Underline on hover */
 }
 
+.language-buttons {
+    position: fixed;
+    top: 40px;
+    right: 20px;
+    z-index: 1100;
+    display: flex;
+    gap: 10px;
+}
+
+.lang-button {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.lang-button.active {
+    color: #FFFFFF;
+}
+
+.lang-button:not(.active) {
+    color: #FFD500;
+}
+
 @media (max-width: 720px) {
     .logos {
         flex-direction: column;

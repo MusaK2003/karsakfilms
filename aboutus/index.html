@@ -11,10 +11,10 @@
 
 <body>
     <div id="header-container"></div>
-<div class="language-buttons">
-    <button class="lang-button active" onclick="window.location.href='/aboutus'">EN</button>
-    <button class="lang-button" onclick="window.location.href='/aboutus/ru'">RU</button>
-</div>
+    <div class="language-buttons">
+        <button class="lang-button active" onclick="window.location.href='/aboutus'">EN</button>
+        <button class="lang-button" onclick="window.location.href='/aboutus/ru'">RU</button>
+    </div>
 
     <main>
         <section id="about">
@@ -54,7 +54,6 @@
             </ul>
         </section>
     </main>
-  
 
     <script>
         function loadHeader() {
@@ -70,7 +69,10 @@
         loadHeader();
 
         function initializeMenuToggle() {
-            document.querySelector('.mobile-menu-button').addEventListener('click', toggleMenu);
+            const menuButton = document.querySelector('.mobile-menu-button');
+            if (menuButton) {
+                menuButton.addEventListener('click', toggleMenu);
+            }
         }
 
         function toggleMenu() {
@@ -83,17 +85,19 @@
             handleHeaderOpacity(); // Initial call to set the header state on load
 
             // Handling header hover effects
-            var header = document.querySelector('header');
-            header.addEventListener('mouseover', function() {
-                this.classList.add('hovered');
-                this.style.backgroundColor = 'rgba(5, 5, 5, 0.95)';
-                this.style.backdropFilter = 'blur(10px)'; // Maximum blur value on hover
-            });
+            const header = document.querySelector('header');
+            if (header) {
+                header.addEventListener('mouseover', function() {
+                    this.classList.add('hovered');
+                    this.style.backgroundColor = 'rgba(5, 5, 5, 0.95)';
+                    this.style.backdropFilter = 'blur(10px)'; // Maximum blur value on hover
+                });
 
-            header.addEventListener('mouseout', function() {
-                this.classList.remove('hovered');
-                handleHeaderOpacity();
-            });
+                header.addEventListener('mouseout', function() {
+                    this.classList.remove('hovered');
+                    handleHeaderOpacity();
+                });
+            }
         }
 
         function handleHeaderOpacity() {
@@ -109,8 +113,8 @@
                 blurValue = 10; // Maximum blur value
             }
 
-            var header = document.querySelector('header');
-            if (!header.classList.contains('hovered')) {
+            const header = document.querySelector('header');
+            if (header && !header.classList.contains('hovered')) {
                 header.style.backgroundColor = `rgba(5, 5, 5, ${opacity})`;
                 header.style.backdropFilter = `blur(${blurValue}px)`; // Set the blur value
             }

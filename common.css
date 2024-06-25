@@ -115,7 +115,6 @@ nav.desktop-menu ul li a:hover {
 @media (max-width: 1080px) {
     .mobile-menu-button {
         display: block;
-     
     }
 
     .desktop-menu {
@@ -127,7 +126,7 @@ nav.desktop-menu ul li a:hover {
         justify-content: center; /* Center elements horizontally */
         align-items: center; /* Center elements vertically (optional) */
         width: 100%; /* Ensure header spans the viewport width */
-                padding: 0 0px; /* Optional padding for content */
+        padding: 0 0px; /* Optional padding for content */
         min-height: 70px;
     }
 

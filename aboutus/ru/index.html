@@ -67,17 +67,23 @@
         }
         
         function switchLanguage(lang) {
-            const currentPath = window.location.pathname;
-            if (lang === 'ru') {
-                if (!currentPath.includes('/ru/')) {
-                    window.location.href = currentPath + '/ru';
-                }
-            } else {
-                if (currentPath.includes('/ru')) {
-                    window.location.href = currentPath.replace('/ru', '');
-                }
-            }
+    const currentPath = window.location.pathname;
+    const pathParts = currentPath.split('/');
+
+    if (lang === 'ru') {
+        if (!pathParts.includes('ru')) {
+            pathParts.splice(pathParts.length - 1, 0, 'ru');
+            window.location.href = pathParts.join('/');
         }
+    } else {
+        if (pathParts.includes('ru')) {
+            const ruIndex = pathParts.indexOf('ru');
+            pathParts.splice(ruIndex, 1);
+            window.location.href = pathParts.join('/');
+        }
+    }
+}
+
 
         loadHeader();
     </script>

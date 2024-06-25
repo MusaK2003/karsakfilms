@@ -56,18 +56,6 @@
     </div>
 </section>
 
-  <script>
-        function loadHeader() {
-            fetch('/header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-container').innerHTML = data;
-                });
-        }
-
-        loadHeader();
-    </script>
-
     <script>
         
 
@@ -118,7 +106,7 @@
             }
         }
     function loadHeader() {
-            fetch('/header.html')
+            fetch('/headerru.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-container').innerHTML = data;

@@ -13,44 +13,7 @@ body {
     position: relative;
 }
 
-.header-text {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3.5em; 
-    color: #FFF;
-    font-weight: bold;
-    z-index: 10;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    text-align: center; /* Ensures that multi-line text is centered */
-}
 
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 0 20px;
-    min-height: 100px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: rgba(5, 5, 5, 0);
-    transition: background 0.3s ease;
-    z-index: 1000;
-    backdrop-filter: blur(0); /* Initial blur value */
-}
-
-
-header img.logo {
-    position: absolute;
-    left: 20px;
-    width: 140px;
-    height: auto;
-    top: 50%;
-    transform: translateY(-50%);
-}
 
 nav.desktop-menu {
     width: 100%;
@@ -229,54 +192,7 @@ footer {
 
 
 
-.mobile-menu-button {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-    position: fixed;
-    top: 4px; /* Adjust positioning as needed */
-    left: 20px; /* Adjust positioning as needed */
-    margin-top: 10px; /* Add a small top margin (optional) */
-    z-index: 1050; /* Ensure button is above header and menu */
-}
 
-
-.mobile-menu {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 165px;
-    height: 100%;
-    background: #000000;
-    transition: left 0.3s ease;
-    z-index: 1000; /* Ensure the menu is below the button */
-    padding-top: 70px; /* Add padding to move menu items below the button */
-}
-
-.mobile-menu-button.active {
-  background-color: rgba(0, 0, 0, 0.3); /* Add some transparency to indicate active state */
-}
-
-.mobile-menu ul {
-    list-style: none;
-    padding: 20px;
-    padding-top: 35px;
-    margin: 0;
-}
-
-.mobile-menu ul li {
-    margin-bottom: 20px;
-}
-
-.mobile-menu ul li a {
-    color: #FFD500;
-    text-decoration: none;
-    font-size: 20px;
-     font-weight: bold;
-}
 .video-container {
   display: flex;
   flex-wrap: wrap; /* Ensures elements wrap to the next line */
@@ -295,29 +211,7 @@ footer {
 }
 
 @media (max-width: 1280px) {
-  .mobile-menu-button {
-    display: block;
-  }
   
-  .desktop-menu {
-    display: none;
-  }
-
-  header {
-    
-    display: flex; /* Make header a flex container */
-    justify-content: center; /* Center elements horizontally */
-    align-items: center; /* Center elements vertically (optional) */
-    width: 100%; /* Ensure header spans the viewport width */
-    padding: 0 0px; /* Optional padding for content */
-    min-height: 70px;
-  }
-  
-  header img.logo {
-    position: static;
-    transform: none;
-    width: 100px; /* Adjust as necessary */
-  }
   .header-text {   
     font-size: 3.5em; 
   }

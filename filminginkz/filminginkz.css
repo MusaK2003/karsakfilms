@@ -192,5 +192,21 @@ footer {
 .menu-active .mobile-menu {
     left: 0;
 }
+@media (max-width: 1280px) {
+  
+  
+  h
+  .about-container { /* Override for mobile */
+  
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for stacking */
+  }
+  section {
+   
+  }
+  .column { /* Remove margin for cleaner layout (optional) */
+    margin-right: 0;
+  }
 
+}
 

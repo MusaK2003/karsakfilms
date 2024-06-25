@@ -13,65 +13,22 @@ body {
     position: relative;
 }
 
-
-
-nav.desktop-menu {
-    width: 100%;
-    text-align: center;
-}
-
-nav.desktop-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-nav.desktop-menu ul li {
-    padding: 0 15px;
-}
-
-nav.desktop-menu ul li a {
-    color: #FFD500;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease, background 0.3s ease;
-     font-size: 20px;
-}
-
-nav.desktop-menu ul li a:hover {
-   /* background: rgba(255, 213, 0, 0.5); */
+.header-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3.5em; 
     color: #FFF;
-}
-
-
-
-.language-buttons {
-    position: fixed;
-    top: 40px;
-    right: 20px;
-    z-index: 1100;
-    display: flex;
-    gap: 10px;
-}
-
-.lang-button {
-    background-color: transparent;
-    border: none;
-    font-size: 18px;
     font-weight: bold;
-    cursor: pointer;
+    z-index: 10;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: center; /* Ensures that multi-line text is centered */
 }
 
-.lang-button.active {
-    color: #FFFFFF;
-}
 
-.lang-button:not(.active) {
-    color: #FFD500;
-}
+
+
 
 .column {
     flex: 1;
@@ -211,7 +168,12 @@ footer {
 }
 
 @media (max-width: 1280px) {
-  
+
+  .desktop-menu {
+    display: none;
+  }
+
+
   .header-text {   
     font-size: 3.5em; 
   }

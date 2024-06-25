@@ -105,6 +105,28 @@ nav.desktop-menu ul li a:hover {
     left: 0;
 }
 
+.language-switch {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.lang-button {
+    background: none;
+    border: none;
+    color: #FFD500;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.lang-button.active {
+    color: #FFF;
+}
+
 @media (max-width: 1080px) {
     .mobile-menu-button {
         display: block;
@@ -131,22 +153,5 @@ nav.desktop-menu ul li a:hover {
 
     .header-text {
         font-size: 3.5em;
-    }
-
-    .about-container {
-        display: grid;
-        grid-template-columns: 1fr; /* Single column for stacking */
-    }
-
-    section {
-        font-size: 16px;
-    }
-
-    .column { /* Remove margin for cleaner layout (optional) */
-        margin-right: 0;
-    }
-
-    main {
-        margin: 100px auto 0 auto;
     }
 }

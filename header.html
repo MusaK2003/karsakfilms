@@ -55,19 +55,18 @@ function handleHeaderOpacity() {
 
 window.addEventListener('scroll', handleHeaderOpacity);
 
-// Apply initial settings on load
-document.addEventListener('DOMContentLoaded', handleHeaderOpacity);
-
 // Handling header hover effects
-var header = document.querySelector('header');
-header.addEventListener('mouseover', function() {
-    this.classList.add('hovered');
-    this.style.backgroundColor = 'rgba(5, 5, 5, 0.95)';
-    this.style.backdropFilter = 'blur(10px)'; // Maximum blur value on hover
-});
+document.addEventListener('DOMContentLoaded', () => {
+    var header = document.querySelector('header');
+    header.addEventListener('mouseover', function() {
+        this.classList.add('hovered');
+        this.style.backgroundColor = 'rgba(5, 5, 5, 0.95)';
+        this.style.backdropFilter = 'blur(10px)'; // Maximum blur value on hover
+    });
 
-header.addEventListener('mouseout', function() {
-    this.classList.remove('hovered');
-    handleHeaderOpacity();
+    header.addEventListener('mouseout', function() {
+        this.classList.remove('hovered');
+        handleHeaderOpacity();
+    });
 });
 </script>

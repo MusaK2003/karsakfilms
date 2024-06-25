@@ -1,10 +1,40 @@
+function loadHeader() {
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+            // After loading the header, initialize the menu toggle and scroll effects
+            initializeMenuToggle();
+            initializeHeaderOpacity();
+        });
+}
+
+function initializeMenuToggle() {
+    document.querySelector('.mobile-menu-button').addEventListener('click', toggleMenu);
+}
+
 function toggleMenu() {
     document.body.classList.toggle('menu-active');
-    // Add a class toggle to the button as well
     document.querySelector('.mobile-menu-button').classList.toggle('active');
 }
 
-// Add the existing JavaScript code here for header opacity and modal functionality
+function initializeHeaderOpacity() {
+    window.addEventListener('scroll', handleHeaderOpacity);
+    handleHeaderOpacity(); // Initial call to set the header state on load
+
+    // Handling header hover effects
+    var header = document.querySelector('header');
+    header.addEventListener('mouseover', function() {
+        this.classList.add('hovered');
+        this.style.backgroundColor = 'rgba(5, 5, 5, 0.95)';
+        this.style.backdropFilter = 'blur(10px)'; // Maximum blur value on hover
+    });
+
+    header.addEventListener('mouseout', function() {
+        this.classList.remove('hovered');
+        handleHeaderOpacity();
+    });
+}
 
 function handleHeaderOpacity() {
     var top = window.pageYOffset || document.documentElement.scrollTop;
@@ -26,28 +56,4 @@ function handleHeaderOpacity() {
     }
 }
 
-window.addEventListener('scroll', handleHeaderOpacity);
-
-// Apply initial settings on load
-document.addEventListener('DOMContentLoaded', handleHeaderOpacity);
-
-// Handling header hover effects
-var header = document.querySelector('header');
-header.addEventListener('mouseover', function() {
-    this.classList.add('hovered');
-    this.style.backgroundColor = 'rgba(5, 5, 5, 0.95)';
-    this.style.backdropFilter = 'blur(10px)'; // Maximum blur value on hover
-});
-
-header.addEventListener('mouseout', function() {
-    this.classList.remove('hovered');
-    handleHeaderOpacity();
-});
-
-function switchLanguage(lang) {
-    if (lang === 'ru') {
-        window.location.href = window.location.pathname.replace('/aboutus', '/aboutus/ru');
-    } else {
-        window.location.href = window.location.pathname.replace('/aboutus/ru', '/aboutus');
-    }
-}
+document.addEventListener('DOMContentLoaded', loadHeader);

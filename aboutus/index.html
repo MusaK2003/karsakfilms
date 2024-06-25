@@ -70,7 +70,7 @@
             const currentPath = window.location.pathname;
             if (lang === 'ru') {
                 if (!currentPath.includes('/ru/')) {
-                    window.location.href = '/ru' + currentPath;
+                    window.location.href = currentPath + '/ru';
                 }
             } else {
                 if (currentPath.includes('/ru/')) {

@@ -7,7 +7,10 @@ body {
     background-color: rgba(30, 30, 30, 1); /* Main background color across all sections */
 }
 
+header {
 
+    background: rgba(5, 5, 5, 0);
+}
 
 main {
     max-width: 1280px;

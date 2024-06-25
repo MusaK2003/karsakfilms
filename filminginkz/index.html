@@ -343,47 +343,64 @@ Kolsai Lakes, often dubbed the "Pearl of the Northern Tien Shan," are nestled wi
 <script>
        
 
-function handleHeaderOpacity() {
-  var top = window.pageYOffset || document.documentElement.scrollTop;
-  var opacity = 0;
-  var blurValue = 0;
-  
-  if (top <= 50) {
-    opacity = 0;
-    blurValue = 0;
-  } else if (top > 50 && top <= 300) {
-    opacity = (top - 50) / 250;
-    blurValue = opacity * 10; // Adjust this value as needed for more or less blur
-    opacity = Math.min(opacity, 0.85);
-  } else {
-    opacity = 0.85;
-    blurValue = 10; // Maximum blur value
-  }
+function loadHeader() {
+            fetch('/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    initializeMenuToggle();
+                    initializeHeaderOpacity();
+                });
+        }
 
-  var header = document.querySelector('header');
-  if (!header.classList.contains('hovered')) {
-    header.style.backgroundColor = `rgba(5, 5, 5, ${opacity})`;
-    header.style.backdropFilter = `blur(${blurValue}px)`; // Set the blur value
-  }
-}
+        loadHeader();
 
-window.addEventListener('scroll', handleHeaderOpacity);
+        function initializeMenuToggle() {
+            document.querySelector('.mobile-menu-button').addEventListener('click', toggleMenu);
+        }
 
-// Apply initial settings on load
-document.addEventListener('DOMContentLoaded', handleHeaderOpacity);
+        function toggleMenu() {
+            document.body.classList.toggle('menu-active');
+            document.querySelector('.mobile-menu-button').classList.toggle('active');
+        }
 
-// Handling header hover effects
-var header = document.querySelector('header');
-header.addEventListener('mouseover', function() {
-  this.classList.add('hovered');
-  this.style.backgroundColor = 'rgba(5, 5, 5, 0.90)';
-  this.style.backdropFilter = 'blur(10px)'; // Maximum blur value on hover
-});
+        function initializeHeaderOpacity() {
+            window.addEventListener('scroll', handleHeaderOpacity);
+            handleHeaderOpacity(); // Initial call to set the header state on load
 
-header.addEventListener('mouseout', function() {
-  this.classList.remove('hovered');
-  handleHeaderOpacity();
-});
+            // Handling header hover effects
+            var header = document.querySelector('header');
+            header.addEventListener('mouseover', function() {
+                this.classList.add('hovered');
+                this.style.backgroundColor = 'rgba(5, 5, 5, 0.95)';
+                this.style.backdropFilter = 'blur(10px)'; // Maximum blur value on hover
+            });
+
+            header.addEventListener('mouseout', function() {
+                this.classList.remove('hovered');
+                handleHeaderOpacity();
+            });
+        }
+
+        function handleHeaderOpacity() {
+            var top = window.pageYOffset || document.documentElement.scrollTop;
+            var opacity = 0;
+            var blurValue = 0;
+
+            if (top <= 50) {
+                opacity = 1;
+                blurValue = 1;
+            } else {
+                opacity = 0.85;
+                blurValue = 10; // Maximum blur value
+            }
+
+            var header = document.querySelector('header');
+            if (!header.classList.contains('hovered')) {
+                header.style.backgroundColor = `rgba(5, 5, 5, ${opacity})`;
+                header.style.backdropFilter = `blur(${blurValue}px)`; // Set the blur value
+            }
+        }
 </script>
 <script>
  function loadHeader() {

@@ -102,9 +102,10 @@ nav.desktop-menu ul li a:hover {
 }
 
 .mobile-menu ul li a {
-    color: white;
+    color: #FFD500;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
+     font-weight: bold;
 }
 
 .menu-active .mobile-menu {

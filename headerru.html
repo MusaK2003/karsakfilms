@@ -1,10 +1,21 @@
-<link rel="stylesheet" href="/header.css">
-<div class="hero-image">
-    <button class="mobile-menu-button" onclick="toggleMenu()">☰</button>
-    <header>
-        <img src="https://i.ibb.co/ypN4sPW/karsaktransparent-white.png" alt="KARSAK 21ST CENTURY Logo" class="logo">
-        <nav class="desktop-menu">
-            <ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="contacts.css">
+</head>
+
+<body>
+<button class="mobile-menu-button" onclick="toggleMenu()">☰</button>
+<body>
+    <div class="hero-image">
+        <button class="mobile-menu-button" onclick="toggleMenu()">☰</button>
+        <header>           
+            <img src="https://i.ibb.co/ypN4sPW/karsaktransparent-white.png" alt="KARSAK 21ST CENTURY Logo" class="logo">
+            <nav class="desktop-menu">
+                <ul>
                 <li><a href="/aboutus/ru">Про нас</a></li>
                 <li><a href="/filminginkz/ru">Съемки в КЗ</a></li>
                 <li><a href="/indiainkz/ru">Индия в КЗ</a></li>
@@ -25,5 +36,63 @@
         <li><a href="/globalpartnerships/ru"onclick="toggleMenu()">Международные связи</a></li>
         <li><a href="/contacts/ru"onclick="toggleMenu()">Контакты</a></li>
     </ul>
-</div>
+    </div>
 
+
+  </main>
+
+
+
+</body>
+</html>
+
+<script>
+function toggleMenu() {
+  document.body.classList.toggle('menu-active');
+  // Add a class toggle to the button as well
+  document.querySelector('.mobile-menu-button').classList.toggle('active');
+}
+
+// Add the existing JavaScript code here for header opacity and modal functionality
+
+function handleHeaderOpacity() {
+  var top = window.pageYOffset || document.documentElement.scrollTop;
+  var opacity = 0;
+  var blurValue = 0;
+  
+  if (top <= 50) {
+    opacity = 1;
+    blurValue = 1;
+  }  else {
+    opacity = 0.85;
+    blurValue = 10; // Maximum blur value
+  }
+
+  var header = document.querySelector('header');
+  if (!header.classList.contains('hovered')) {
+    header.style.backgroundColor = `rgba(5, 5, 5, ${opacity})`;
+    header.style.backdropFilter = `blur(${blurValue}px)`; // Set the blur value
+  }
+}
+
+window.addEventListener('scroll', handleHeaderOpacity);
+
+// Apply initial settings on load
+document.addEventListener('DOMContentLoaded', handleHeaderOpacity);
+
+// Handling header hover effects
+var header = document.querySelector('header');
+header.addEventListener('mouseover', function() {
+  this.classList.add('hovered');
+  this.style.backgroundColor = 'rgba(5, 5, 5, 0.95)';
+  this.style.backdropFilter = 'blur(10px)'; // Maximum blur value on hover
+});
+
+header.addEventListener('mouseout', function() {
+  this.classList.remove('hovered');
+  handleHeaderOpacity();
+});
+
+
+
+  </script>

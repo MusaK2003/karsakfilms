@@ -5,38 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filming in Kazakhstan</title>
     <link rel="stylesheet" href="filminginkz.css">
+    <link rel="stylesheet" href="/common.css">    
+    <link rel="stylesheet" href="/header.css">
 </head>
 
 
 <body>
     <div class="hero-image">
     <div class="header-text">FILMING IN KAZAKHSTAN</div>
-        <button class="mobile-menu-button" onclick="toggleMenu()">☰</button>
-        <header>           
-            <img src="https://i.ibb.co/ypN4sPW/karsaktransparent-white.png" alt="KARSAK 21ST CENTURY Logo" class="logo">
-            <nav class="desktop-menu">
-                <ul>
-                    <li><a href="/aboutus">About us</a></li>
-                    <li><a href="/filminginkz">Filming in KZ</a></li>
-                    <li><a href="/indiainkz">India in KZ</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/globalpartnerships">Global Partnerships</a></li>
-                    <li><a href="/contacts">Contacts</a></li>
-                </ul>
-            </nav>
-        </header>
-    </div>
-
-    <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="/aboutus" onclick="toggleMenu()">About us</a></li>
-            <li><a href="/filminginkz" onclick="toggleMenu()">Filming in KZ</a></li>
-            <li><a href="/indiainkz" onclick="toggleMenu()">India in KZ</a></li>
-            <li><a href="/services" onclick="toggleMenu()">Services</a></li>
-            <li><a href="/globalpartnerships" onclick="toggleMenu()">Global Partnerships</a></li>
-            <li><a href="/contacts" onclick="toggleMenu()">Contacts</a></li>
-        </ul>
-    </div>
+    <div id="header-container"></div>
+    <div class="language-buttons">
+    <button class="lang-button active" onclick="window.location.href='/indiainkz'">EN</button>
+    <button class="lang-button" onclick="window.location.href='/indiainkz/ru'">RU</button>
+</div>
 <section id="about">
        <div class="about-container">
     <div class="column">
@@ -359,7 +340,21 @@ Kolsai Lakes, often dubbed the "Pearl of the Northern Tien Shan," are nestled wi
 
 </body>
 </html>
+<script>
+        function loadHeader() {
+            fetch('/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    // After loading the header, load the header script
+                    const script = document.createElement('script');
+                    script.src = "/scripts/header.js";
+                    document.body.appendChild(script);
+                });
+        }
 
+        loadHeader();
+    </script>
 <script>
 function toggleMenu() {
   document.body.classList.toggle('menu-active');

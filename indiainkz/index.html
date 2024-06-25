@@ -198,19 +198,7 @@ Since then, Maira has consistently participated in the annual IIFTC Conclave, In
 </main>
 
   <script>
-        function loadHeader() {
-            fetch('/header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-container').innerHTML = data;
-                    // After loading the header, load the header script
-                    const script = document.createElement('script');
-                    script.src = "/scripts/header.js";
-                    document.body.appendChild(script);
-                });
-        }
-
-        loadHeader();
+        
     function initializeMenuToggle() {
             document.querySelector('.mobile-menu-button').addEventListener('click', toggleMenu);
         }
@@ -256,6 +244,19 @@ Since then, Maira has consistently participated in the annual IIFTC Conclave, In
                 header.style.backgroundColor = `rgba(5, 5, 5, ${opacity})`;
                 header.style.backdropFilter = `blur(${blurValue}px)`; // Set the blur value
             }
+        function loadHeader() {
+            fetch('/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    // After loading the header, load the header script
+                    const script = document.createElement('script');
+                    script.src = "/scripts/header.js";
+                    document.body.appendChild(script);
+                });
+        }
+
+        loadHeader();
     </script>
 </body>
 </html>

@@ -80,7 +80,7 @@ h2 {
 }
 .language-buttons {
     position: fixed;
-    top: 50px;
+    top: 40px;
     right: 20px;
     z-index: 1100;
     display: flex;

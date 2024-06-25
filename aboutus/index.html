@@ -36,7 +36,7 @@
                 <li><a href="https://tengrinews.kz/mixnews/myi-podumali-nahodimsya-rayu-lyubov-almatyi-zastavila-384317/">Tengrinews Article 4</a></li>
                 <li><a href="https://www.imdb.com/name/nm4811449/bio/">IMDb Page</a></li>
                 <li><a href="https://m.youtube.com/watch?v=LvI7EJc0AH0">YouTube Video</a></li>
-                <li><a href="https://newtimes.kz/obshchestvo/125955-prodolzhenie-izvestnogo-indiiskogo-filma-snimaiut-v-almaty">Newtimes</a></li>
+                <li><a href="https://newtimes.kz/obshchestvo/125955-prodolzhenie-izvestnogo-indiiskogo-filma-snimayut-v-almaty">Newtimes</a></li>
                 <li><a href="https://almalife.kz/culture/687-vozdushnyj-zmej-2-snimayut-v-almaty">Almalife</a></li>
                 <li><a href="https://rg.ru/2023/10/27/sobiraia-silu-mira">RG</a></li>
                 <li><a href="https://www.turksoy.org/ru-RU/novosti/sozdan-soyuz-kinematografistov-tyurkskogo-mira">Turksoy</a></li>
@@ -49,6 +49,20 @@
         </section>
     </main>
     
-    <script src="../path/to/header.js"></script>
+    <script>
+        function loadHeader() {
+            fetch('/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    // After loading the header, load the header script
+                    const script = document.createElement('script');
+                    script.src = "/scripts/header.js";
+                    document.body.appendChild(script);
+                });
+        }
+
+        loadHeader();
+    </script>
 </body>
 </html>

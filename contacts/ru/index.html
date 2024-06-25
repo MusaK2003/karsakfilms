@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link rel="stylesheet" href="contacts.css">
+    <link rel="stylesheet" href="/common.css">    
+</head>
+
+<body>
+    <div id="header-container"></div>
+<div class="language-buttons">
+    <button class="lang-button active" onclick="window.location.href='/aboutus'">EN</button>
+    <button class="lang-button" onclick="window.location.href='/aboutus/ru'">RU</button>
+</div>
+
+<main>
+    <section class="contacts">
+        <h1>Контакты</h1>
+        <div class="contact-info">
+            <div class="contact-details">
+                <p><strong>Номер:</strong> +77012246473</p>
+                <p><strong>Email:</strong> <a href="mailto:mkarsakbayeva@gmail.com">mkarsakbayeva@gmail.com</a></p>
+            </div>
+            <div class="logos">
+                <div class="img">
+                    <img src="https://i.ibb.co/wzxnGgN/whatsappmaira.jpg" alt="WhatsApp QR Code">
+                    <p>WhatsApp</p>
+                </div>
+                <div class="img">
+                    <img src="https://i.ibb.co/nQDkgDp/telegrammaira.png" alt="Telegram QR Code">
+                    <p>Telegram</p>
+                <div class="clear-both"></div> 
+                </div>
+                <br>
+                <div class="img">
+    <img src="https://i.ibb.co.com/Df7fDVV/facebooklogo.png" alt="Facebook Logo">
+    <p><a href="https://www.facebook.com/maira.karsakbayeva">Maira Karsakbayeva</a></p>
+</div>
+<div class="img">
+    <img src="https://i.ibb.co.com/RbvDV4S/instagramlogotext.png" alt="Instagram Logo">
+    <p><a href="https://www.instagram.com/mairakarsakbayeva">@mairakarsakbayeva</a></p>
+</div>
+            </div>
+        </div>
+    </section>
+  </main>
+
+<script>
+        function loadHeader() {
+            fetch('/headerru.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    // After loading the header, load the header script
+                    const script = document.createElement('script');
+                    script.src = "/scripts/header.js";
+                    document.body.appendChild(script);
+                });
+        }
+
+        loadHeader();
+    </script>
+
+</body>
+</html>
+
+
+
 

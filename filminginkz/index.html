@@ -8,7 +8,22 @@
     <link rel="stylesheet" href="/common.css">    
     <link rel="stylesheet" href="/header.css">
 </head>
+<script>
+        function loadHeader() {
+            fetch('/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    // After loading the header, load the header script
+                    const script = document.createElement('script');
+                    script.src = "/scripts/header.js";
+                    document.body.appendChild(script);
+                });
+        }
 
+        loadHeader();
+    </script>
+<script>
 
 <body>
     <div class="hero-image">
@@ -340,22 +355,7 @@ Kolsai Lakes, often dubbed the "Pearl of the Northern Tien Shan," are nestled wi
 
 </body>
 </html>
-<script>
-        function loadHeader() {
-            fetch('/header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-container').innerHTML = data;
-                    // After loading the header, load the header script
-                    const script = document.createElement('script');
-                    script.src = "/scripts/header.js";
-                    document.body.appendChild(script);
-                });
-        }
 
-        loadHeader();
-    </script>
-<script>
 function toggleMenu() {
   document.body.classList.toggle('menu-active');
   // Add a class toggle to the button as well

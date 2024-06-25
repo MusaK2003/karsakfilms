@@ -93,46 +93,7 @@ main {
     }
 }
 @media (max-width: 1080px) {
-    .mobile-menu-button {
-        display: block;
-     
-    }
-
-    .desktop-menu {
-        display: none;
-    }
-
-    header {
-        display: flex; /* Make header a flex container */
-        justify-content: center; /* Center elements horizontally */
-        align-items: center; /* Center elements vertically (optional) */
-        width: 100%; /* Ensure header spans the viewport width */
-        padding: 0 0px; /* Optional padding for content */
-        min-height: 70px;
-    }
-
-    header img.logo {
-        position: static;
-        transform: none;
-        width: 100px; /* Adjust as necessary */
-    }
-
-    .header-text {
-        font-size: 3.5em;
-    }
-
-    .about-container {
-        display: grid;
-        grid-template-columns: 1fr; /* Single column for stacking */
-    }
-
-    section {
-        font-size: 16px;
-    }
-
-    .column { /* Remove margin for cleaner layout (optional) */
-        margin-right: 0;
-    }
+   
     main 
   {
     margin: 100px auto 0 auto;

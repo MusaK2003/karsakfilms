@@ -140,6 +140,7 @@ nav.desktop-menu ul li a:hover {
         position: static;
         transform: none;
         width: 100px; /* Adjust as necessary */
+        z-index: 1050;
     }
 
     .header-text {

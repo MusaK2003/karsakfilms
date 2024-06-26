@@ -141,7 +141,9 @@ main {
         flex-direction: column;
         align-items: center;
     }
-
+    .partnerships {
+    text-align: left;
+}
     .info {
         margin-right: 0;
         text-align: center;

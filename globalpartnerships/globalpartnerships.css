@@ -44,7 +44,7 @@ main {
 .info, .partnership-category h2,
 .partnership-category ul li {
     flex: 1;
-    margin-right: 20px;
+    margin-right: 5px;
     font-size: 20px;
 }
 

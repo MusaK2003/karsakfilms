@@ -189,17 +189,7 @@
         loadHeader();
     </script>
      <script>
-        function loadHeader() {
-            fetch('/header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-container').innerHTML = data;
-                    initializeMenuToggle();
-                    initializeHeaderOpacity();
-                });
-        }
-
-        loadHeader();
+        
 
         function initializeMenuToggle() {
             const menuButton = document.querySelector('.mobile-menu-button');

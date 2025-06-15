@@ -14,11 +14,13 @@ function loadHeader(locale = 'en') {
 
 
 function initializeMenuToggle() {
-  const menuButton = document.querySelector('.mobile-menu-button');
-  if (menuButton) {
-    menuButton.addEventListener('click', toggleMenu);
-  }
+  document.body.addEventListener('click', function(e) {
+    if (e.target.closest('.mobile-menu-button')) {
+      toggleMenu();
+    }
+  });
 }
+
 
 function toggleMenu() {
   document.body.classList.toggle('menu-active');

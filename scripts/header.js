@@ -6,28 +6,31 @@ function loadHeader(locale = 'en') {
       const container = document.getElementById('header-container');
       if (container) {
         container.innerHTML = data;
-        initializeMenuToggle();      // explicitly initialize after DOM insertion
-        initializeHeaderOpacity();   // existing initialization
+        initializeMenuToggle();
+        initializeHeaderOpacity();
       }
     });
 }
 
-
-
 function initializeMenuToggle() {
   document.body.addEventListener('click', function(e) {
-    if (e.target.closest('.mobile-menu-button')) {
+    const menuButton = e.target.closest('.mobile-menu-button');
+    const mobileLink = e.target.closest('.mobile-menu a');
+
+    if (menuButton) {
       toggleMenu();
+      menuButton.classList.toggle('active');
+    } else if (mobileLink) {
+      toggleMenu();  // closes menu on clicking link
+      document.querySelector('.mobile-menu-button').classList.remove('active');
     }
   });
 }
 
-
 function toggleMenu() {
   document.body.classList.toggle('menu-active');
-  const button = document.querySelector('.mobile-menu-button');
-  if (button) button.classList.toggle('active');
 }
+
 
 function initializeHeaderOpacity() {
   window.addEventListener('scroll', handleHeaderOpacity);

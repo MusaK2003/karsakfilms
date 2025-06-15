@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="aboutus.css">
     <link rel="stylesheet" href="/common.css">
     <link rel="stylesheet" href="/header.css">
+
+    <link rel="stylesheet" href="/footer.css">
     <link rel="icon" href="https://i.ibb.co.com/QM83X9M/karsaklogoicon.png" type="image/png">
+=======
+    <link rel="icon" href="https://i.ibb.co/QM83X9M/karsaklogoicon.png" type="image/png">
+
 </head>
 
 <body>
@@ -26,7 +31,7 @@
                     <p>Maira Karsakbayeva, a film producer and distributor with international experience, established KARSAK XXI CENTURY in 2011. Prior to launching the company, Karsakbayeva lived seven years in Canada, where her international film career began.<br> During her time in Vancouver, British Columbia, Karsakbayeva was entrusted by the Kazakhstan International Film Festivals to facilitate the participation of renowned Hollywood celebrities in their events. Leveraging her strong U.S. partnerships thanks to the Hollywood producer Gabriel Grunfeld, she successfully secured the presence of iconic figures like Kevin Costner, Jean-Claude Van Damme, Steven Seagal, Mike Tyson, Hilary Swank, and Lane Davies, among others. Additionally, she played a key role in bringing the filming of the US TV series "Marco Polo" to Kazakhstan. Most recently, in March 2024, she served as an executive producer for the US film "Mannequin."<br> Since 2018, Maira has actively served as a line producer for six Indian films, partially filmed in Kazakhstan. These productions featured esteemed Indian actors like Randeep Hooda, Harman Baweja, Arun Vijay, Vijay Antony, and Akshara Hasan.</p>
                 </div>
                 <div class="photo">
-                    <img src="https://i.ibb.co.com/S67fpSL/mairaphoto.png" alt="Maira Karsakbayeva">
+                    <img src="https://i.ibb.co/S67fpSL/mairaphoto.png" alt="Maira Karsakbayeva">
                 </div>
             </div>
         </section>
@@ -56,70 +61,14 @@
         </section>
     </main>
 
+    <script src="/scripts/header.js"></script>
     <script>
-        function loadHeader() {
-            fetch('/header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-container').innerHTML = data;
-                    initializeMenuToggle();
-                    initializeHeaderOpacity();
-                });
-        }
-
         loadHeader();
-
-        function initializeMenuToggle() {
-            const menuButton = document.querySelector('.mobile-menu-button');
-            if (menuButton) {
-                menuButton.addEventListener('click', toggleMenu);
-            }
-        }
-
-        function toggleMenu() {
-            document.body.classList.toggle('menu-active');
-            document.querySelector('.mobile-menu-button').classList.toggle('active');
-        }
-
-        function initializeHeaderOpacity() {
-            window.addEventListener('scroll', handleHeaderOpacity);
-            handleHeaderOpacity(); // Initial call to set the header state on load
-
-            // Handling header hover effects
-            const header = document.querySelector('header');
-            if (header) {
-                header.addEventListener('mouseover', function() {
-                    this.classList.add('hovered');
-                    this.style.backgroundColor = 'rgba(5, 5, 5, 0.95)';
-                    this.style.backdropFilter = 'blur(10px)'; // Maximum blur value on hover
-                });
-
-                header.addEventListener('mouseout', function() {
-                    this.classList.remove('hovered');
-                    handleHeaderOpacity();
-                });
-            }
-        }
-
-        function handleHeaderOpacity() {
-            var top = window.pageYOffset || document.documentElement.scrollTop;
-            var opacity = 0;
-            var blurValue = 0;
-
-            if (top <= 50) {
-                opacity = 1;
-                blurValue = 1;
-            } else {
-                opacity = 0.85;
-                blurValue = 10; // Maximum blur value
-            }
-
-            const header = document.querySelector('header');
-            if (header && !header.classList.contains('hovered')) {
-                header.style.backgroundColor = `rgba(5, 5, 5, ${opacity})`;
-                header.style.backdropFilter = `blur(${blurValue}px)`; // Set the blur value
-            }
-        }
     </script>
+<div id="footer-container"></div>
+<script src="/scripts/footer.js"></script>
+<script>
+    loadFooter();
+</script>
 </body>
 </html>

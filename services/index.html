@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="services.css">
     <link rel="stylesheet" href="/common.css">    
     <link rel="stylesheet" href="/header.css">
+ codex/add-footer
+    <link rel="stylesheet" href="/footer.css">
     <link rel="icon" href="https://i.ibb.co.com/QM83X9M/karsaklogoicon.png" type="image/png">
+=======
+    <link rel="icon" href="https://i.ibb.co/QM83X9M/karsaklogoicon.png" type="image/png">
+ main
 </head>
 
 <body>
@@ -44,9 +49,9 @@
     <h2>Strategic Partners</h2>
     <h3>Nomad Stunts</h3>
     <div class="photo3">
-        <img src="https://i.ibb.co.com/pzt3Dvx/nomad1.png" alt="nomad1">
-         <img src="https://i.ibb.co.com/wNm35vX/nomad2.png" alt="nomad2">
-        <img src="https://i.ibb.co.com/zJGvvGt/nomad3.png" alt="nomad3">
+        <img src="https://i.ibb.co/pzt3Dvx/nomad1.png" alt="nomad1">
+         <img src="https://i.ibb.co/wNm35vX/nomad2.png" alt="nomad2">
+        <img src="https://i.ibb.co/zJGvvGt/nomad3.png" alt="nomad3">
         
         
     </div>
@@ -57,22 +62,91 @@
     </div>
     <h3>Stuntmen Group "Leader"</h3>
     <div class="photo3">
-    <img src="https://i.ibb.co.com/HqdBnch/leader-5.jpg" alt="leader-5">
-<img src="https://i.ibb.co.com/51TgG0p/leader-6.jpg" alt="leader-6">
-<img src="https://i.ibb.co.com/125dtVL/leader-7.jpg" alt="leader-7">
-<img src="https://i.ibb.co.com/M7Msg80/leader-8.jpg" alt="leader-8">
-<img src="https://i.ibb.co.com/L0fpM3Q/leader-9.jpg" alt="leader-9">
-<img src="https://i.ibb.co.com/ZHz7RV9/leader-1.jpg" alt="leader-1">
-<img src="https://i.ibb.co.com/VHbVdzP/leader-2.jpg" alt="leader-2">
-<img src="https://i.ibb.co.com/6sqLKfc/leader-3.jpg" alt="leader-3">
-<img src="https://i.ibb.co.com/bR1gbCZ/leader-4.jpg" alt="leader-4">
+    <img src="https://i.ibb.co/HqdBnch/leader-5.jpg" alt="leader-5">
+<img src="https://i.ibb.co/51TgG0p/leader-6.jpg" alt="leader-6">
+<img src="https://i.ibb.co/125dtVL/leader-7.jpg" alt="leader-7">
+<img src="https://i.ibb.co/M7Msg80/leader-8.jpg" alt="leader-8">
+<img src="https://i.ibb.co/L0fpM3Q/leader-9.jpg" alt="leader-9">
+<img src="https://i.ibb.co/ZHz7RV9/leader-1.jpg" alt="leader-1">
+<img src="https://i.ibb.co/VHbVdzP/leader-2.jpg" alt="leader-2">
+<img src="https://i.ibb.co/6sqLKfc/leader-3.jpg" alt="leader-3">
+<img src="https://i.ibb.co/bR1gbCZ/leader-4.jpg" alt="leader-4">
     </div>
 </section>
 
+ 4dhmhm-codex/refactor-pages-to-use-header.js
 <script src="/scripts/header.js"></script>
 <script>
   loadHeader();
 </script>
+=======
+    <script>
+        
+
+        function initializeMenuToggle() {
+            document.querySelector('.mobile-menu-button').addEventListener('click', toggleMenu);
+        }
+
+        function toggleMenu() {
+            document.body.classList.toggle('menu-active');
+            document.querySelector('.mobile-menu-button').classList.toggle('active');
+        }
+
+        function initializeHeaderOpacity() {
+            window.addEventListener('scroll', handleHeaderOpacity);
+            handleHeaderOpacity(); // Initial call to set the header state on load
+
+            // Handling header hover effects
+            var header = document.querySelector('header');
+            header.addEventListener('mouseover', function() {
+                this.classList.add('hovered');
+                this.style.backgroundColor = 'rgba(5, 5, 5, 0.95)';
+                this.style.backdropFilter = 'blur(10px)'; // Maximum blur value on hover
+            });
+
+            header.addEventListener('mouseout', function() {
+                this.classList.remove('hovered');
+                handleHeaderOpacity();
+            });
+        }
+
+        function handleHeaderOpacity() {
+            var top = window.pageYOffset || document.documentElement.scrollTop;
+            var opacity = 0;
+            var blurValue = 0;
+
+            if (top <= 50) {
+                opacity = 1;
+                blurValue = 1;
+            } else {
+                opacity = 0.85;
+                blurValue = 10; // Maximum blur value
+            }
+
+            var header = document.querySelector('header');
+            if (!header.classList.contains('hovered')) {
+                header.style.backgroundColor = `rgba(5, 5, 5, ${opacity})`;
+                header.style.backdropFilter = `blur(${blurValue}px)`; // Set the blur value
+            }
+        }
+    function loadHeader() {
+            fetch('/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    initializeMenuToggle();
+                    initializeHeaderOpacity();
+                });
+        }
+
+        loadHeader();
+    </script>
+<div id="footer-container"></div>
+<script src="/scripts/footer.js"></script>
+<script>
+    loadFooter();
+</script>
+main
 </body>
 </html>
 

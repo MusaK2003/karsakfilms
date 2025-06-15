@@ -6,11 +6,12 @@ function loadHeader(locale = 'en') {
       const container = document.getElementById('header-container');
       if (container) {
         container.innerHTML = data;
-        initializeMenuToggle();
+        initializeMenuToggle(); // <- explicitly call after insertion
         initializeHeaderOpacity();
       }
     });
 }
+
 
 function initializeMenuToggle() {
   const menuButton = document.querySelector('.mobile-menu-button');

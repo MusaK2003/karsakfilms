@@ -12,7 +12,6 @@
 
 <body>
     <div id="header-container"></div>
-    <div id="header-container"></div>
 <div class="language-buttons">
     <button class="lang-button" onclick="window.location.href='/globalpartnerships'">EN</button>
     <button class="lang-button active" onclick="window.location.href='/globalpartnerships/ru'">RU</button>
@@ -205,16 +204,12 @@
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-container').innerHTML = data;
-                    // After loading the header, load the header script
-                    const script = document.createElement('script');
-                    script.src = "/scripts/header.js";
-                    document.body.appendChild(script);
+                    initializeMenuToggle();
+                    initializeHeaderOpacity();
                 });
         }
 
         loadHeader();
-    </script>
- <script>
 
         function initializeMenuToggle() {
             const menuButton = document.querySelector('.mobile-menu-button');

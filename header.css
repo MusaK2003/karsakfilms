@@ -151,3 +151,5 @@ nav.desktop-menu ul li a:hover {
 
 
 }
+
+footer {\n    background: #333;\n    color: #fff;\n    text-align: center;\n    padding: 20px 0;\n}\nfooter a {\n    color: #fff;\n}

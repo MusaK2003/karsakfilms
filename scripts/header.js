@@ -12,6 +12,18 @@ function loadHeader(locale = 'en') {
         });
 }
 
+function loadFooter(locale = 'en') {
+    const file = locale === 'ru' ? '/footerru.html' : '/footer.html';
+    fetch(file)
+        .then(response => response.text())
+        .then(html => {
+            const container = document.getElementById('footer-container');
+            if (container) {
+                container.innerHTML = html;
+            }
+        });
+}
+
 function initializeMenuToggle() {
     const menuButton = document.querySelector('.mobile-menu-button');
     if (menuButton) {

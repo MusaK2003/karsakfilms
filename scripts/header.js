@@ -1,3 +1,13 @@
+4dhmhm-codex/refactor-pages-to-use-header.js
+function loadHeader(lang) {
+    const url = lang === 'ru' ? '/headerru.html' : '/header.html';
+    fetch(url)
+        .then(response => response.text())
+        .then(html => {
+            const container = document.getElementById('header-container');
+            if (container) {
+                container.innerHTML = html;
+=======
 function loadHeader(locale = 'en') {
     const file = locale === 'ru' ? '/headerru.html' : '/header.html';
     fetch(file)
@@ -6,6 +16,7 @@ function loadHeader(locale = 'en') {
             const container = document.getElementById('header-container');
             if (container) {
                 container.innerHTML = data;
+ main
                 initializeMenuToggle();
                 initializeHeaderOpacity();
             }
@@ -21,8 +32,15 @@ function initializeMenuToggle() {
 
 function toggleMenu() {
     document.body.classList.toggle('menu-active');
+ 4dhmhm-codex/refactor-pages-to-use-header.js
+    const menuButton = document.querySelector('.mobile-menu-button');
+    if (menuButton) {
+        menuButton.classList.toggle('active');
+    }
+=======
     const button = document.querySelector('.mobile-menu-button');
     if (button) button.classList.toggle('active');
+ main
 }
 
 function initializeHeaderOpacity() {
@@ -31,12 +49,21 @@ function initializeHeaderOpacity() {
 
     const header = document.querySelector('header');
     if (header) {
+ 4dhmhm-codex/refactor-pages-to-use-header.js
+        header.addEventListener('mouseover', function () {
+=======
         header.addEventListener('mouseover', function() {
+ main
             this.classList.add('hovered');
             this.style.backgroundColor = 'rgba(5, 5, 5, 0.95)';
             this.style.backdropFilter = 'blur(10px)';
         });
+ 4dhmhm-codex/refactor-pages-to-use-header.js
+
+        header.addEventListener('mouseout', function () {
+=======
         header.addEventListener('mouseout', function() {
+ main
             this.classList.remove('hovered');
             handleHeaderOpacity();
         });

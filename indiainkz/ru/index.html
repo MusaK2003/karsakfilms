@@ -7,12 +7,8 @@
     <link rel="stylesheet" href="/indiainkz/indiainkz.css">
     <link rel="stylesheet" href="/common.css">    
     <link rel="stylesheet" href="/header.css">
-codex/add-footer
     <link rel="stylesheet" href="/footer.css">
-    <link rel="icon" href="https://i.ibb.co.com/QM83X9M/karsaklogoicon.png" type="image/png">
-=======
     <link rel="icon" href="https://i.ibb.co/QM83X9M/karsaklogoicon.png" type="image/png">
-main
 </head>
 
 <body>
@@ -178,87 +174,14 @@ main
     </section>
 </main>
 
-
- 4dhmhm-codex/refactor-pages-to-use-header.js
 <script src="/scripts/header.js"></script>
 <script>
   loadHeader('ru');
-=======
-  <script>
-        function loadHeader() {
-            fetch('/headerru.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-container').innerHTML = data;
-                    // After loading the header, load the header script
-                    const script = document.createElement('script');
-                    script.src = "/scripts/header.js";
-                    document.body.appendChild(script);
-                });
-        }
-
-        loadHeader();
-    </script>
-     <script>
-        
-
-        function initializeMenuToggle() {
-            const menuButton = document.querySelector('.mobile-menu-button');
-            if (menuButton) {
-                menuButton.addEventListener('click', toggleMenu);
-            }
-        }
-
-        function toggleMenu() {
-            document.body.classList.toggle('menu-active');
-            document.querySelector('.mobile-menu-button').classList.toggle('active');
-        }
-
-        function initializeHeaderOpacity() {
-            window.addEventListener('scroll', handleHeaderOpacity);
-            handleHeaderOpacity(); // Initial call to set the header state on load
-
-            // Handling header hover effects
-            const header = document.querySelector('header');
-            if (header) {
-                header.addEventListener('mouseover', function() {
-                    this.classList.add('hovered');
-                    this.style.backgroundColor = 'rgba(5, 5, 5, 0.95)';
-                    this.style.backdropFilter = 'blur(10px)'; // Maximum blur value on hover
-                });
-
-                header.addEventListener('mouseout', function() {
-                    this.classList.remove('hovered');
-                    handleHeaderOpacity();
-                });
-            }
-        }
-
-        function handleHeaderOpacity() {
-            var top = window.pageYOffset || document.documentElement.scrollTop;
-            var opacity = 0;
-            var blurValue = 0;
-
-            if (top <= 50) {
-                opacity = 1;
-                blurValue = 1;
-            } else {
-                opacity = 0.85;
-                blurValue = 10; // Maximum blur value
-            }
-
-            const header = document.querySelector('header');
-            if (header && !header.classList.contains('hovered')) {
-                header.style.backgroundColor = `rgba(5, 5, 5, ${opacity})`;
-                header.style.backdropFilter = `blur(${blurValue}px)`; // Set the blur value
-            }
-        }
-    </script>
+</script>
 <div id="footer-container"></div>
 <script src="/scripts/footer.js"></script>
 <script>
-    loadFooter('ru');
- main
+  loadFooter('ru');
 </script>
 </body>
 </html>
